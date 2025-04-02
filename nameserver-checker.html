@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nameserver Propagation Checker - Hostoweb</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="logo.png" alt="Hostoweb Logo"></img>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="dns-lookup.html"><i class="fas fa-search"></i> DNS Lookup</a>
+            <a href="nameserver-checker.html" class="active"><i class="fas fa-server"></i> NS Checker</a>
+            <a href="screenshot-tool.html"><i class="fas fa-camera"></i> Screenshot</a>
+            <a href="mx-lookup.html"><i class="fas fa-envelope"></i> MX Lookup</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <i class="fas fa-server icon"></i>
+                <h1>Nameserver Propagation Checker</h1>
+            </div>
+            <p class="tool-description">
+                Check how quickly nameserver changes are propagating worldwide. This tool queries multiple DNS providers to track your NS record updates across the internet.
+            </p>
+            
+            <div class="input-group">
+                <input type="text" id="domain-input" placeholder="Enter a domain (e.g., example.com)" autocomplete="off">
+                <button id="check-btn"><i class="fas fa-radar"></i> Check Propagation</button>
+            </div>
+            
+            <div class="loader">
+                <div class="spinner"></div>
+                <p class="loader-text terminal-text">Checking nameserver propagation...</p>
+            </div>
+            
+            <div class="error-message" id="error-msg"></div>
+            
+            <div class="results" id="results-container">
+                <div class="results-header">
+                    <h2 id="results-domain">example.com</h2>
+                    <div class="results-actions">
+                        <button id="refresh-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+                        <button id="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                </div>
+                
+                <div class="tool-description" id="summary-container">
+                    <h3>Propagation Summary</h3>
+                    <p id="summary-text">Nameserver changes have propagated to 5/8 DNS providers.</p>
+                </div>
+                
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>DNS Provider</th>
+                            <th>Status</th>
+                            <th>Nameservers</th>
+                            <th>Lookup Time</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- Results will be displayed here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Hostoweb. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script src="nameserver-checker.js"></script>
+</body>
+</html>

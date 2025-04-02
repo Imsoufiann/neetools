@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MX Lookup Tool - Hostoweb</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Additional styles for MX tool */
+        .security-record {
+            background-color: rgba(9, 25, 43, 0.2);
+            border-radius: 3px;
+            padding: 15px;
+            margin-bottom: 15px;
+        }
+        
+        .security-record h4 {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+        
+        .record-description {
+            color: #aaa;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+        
+        .record-value {
+            background-color: var(--gray);
+            padding: 10px;
+            border-radius: 3px;
+            overflow-x: auto;
+            margin: 0;
+            font-size: 13px;
+            word-break: break-all;
+        }
+        
+        .record-missing {
+            color: #ff4747;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="logo.png" alt="Hostoweb Logo"></img>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="dns-lookup.html"><i class="fas fa-search"></i> DNS Lookup</a>
+            <a href="nameserver-checker.html"><i class="fas fa-server"></i> NS Checker</a>
+            <a href="screenshot-tool.html"><i class="fas fa-camera"></i> Screenshot</a>
+            <a href="mx-lookup.html" class="active"><i class="fas fa-envelope"></i> MX Lookup</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <i class="fas fa-envelope icon"></i>
+                <h1>MX Lookup Tool</h1>
+            </div>
+            <p class="tool-description">
+                Check a domain's mail exchange (MX) records to verify email server configurations. Essential for troubleshooting email delivery issues.
+            </p>
+            
+            <div class="input-group">
+                <input type="text" id="domain-input" placeholder="Enter a domain (e.g., example.com)" autocomplete="off">
+                <button id="lookup-btn"><i class="fas fa-search"></i> Lookup</button>
+            </div>
+            
+            <div class="loader">
+                <div class="spinner"></div>
+                <p class="loader-text terminal-text">Looking up MX records...</p>
+            </div>
+            
+            <div class="error-message" id="error-msg"></div>
+            
+            <div class="results" id="results-container">
+                <div class="results-header">
+                    <h2 id="results-domain">example.com</h2>
+                    <div class="results-actions">
+                        <button id="refresh-btn"><i class="fas fa-sync-alt"></i> Refresh</button>
+                        <button id="copy-btn"><i class="fas fa-copy"></i> Copy</button>
+                    </div>
+                </div>
+                
+                <div class="tool-description" id="summary-container">
+                    <h3>Mail Configuration Summary</h3>
+                    <p id="summary-text">This domain has 2 mail servers configured with proper priorities.</p>
+                </div>
+                
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>Priority</th>
+                            <th>Mail Server</th>
+                            <th>TTL</th>
+                        </tr>
+                    </thead>
+                    <tbody id="results-body">
+                        <!-- Results will be displayed here -->
+                    </tbody>
+                </table>
+                
+                <div class="tool-description">
+                    <h3>SPF, DKIM and DMARC Records</h3>
+                    <div id="mail-security-records">
+                        <!-- Email security records will be displayed here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Hostoweb. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script src="mx-lookup.js"></script>
+</body>
+</html>

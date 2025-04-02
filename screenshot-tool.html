@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website Screenshot Tool - Hostoweb</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo-container">
+            <div class="logo">
+                <img src="logo.png" alt="Hostoweb Logo"></img>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html"><i class="fas fa-home"></i> Home</a>
+            <a href="dns-lookup.html"><i class="fas fa-search"></i> DNS Lookup</a>
+            <a href="nameserver-checker.html"><i class="fas fa-server"></i> NS Checker</a>
+            <a href="screenshot-tool.html" class="active"><i class="fas fa-camera"></i> Screenshot</a>
+            <a href="mx-lookup.html"><i class="fas fa-envelope"></i> MX Lookup</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <div class="tool-container">
+            <div class="tool-header">
+                <i class="fas fa-camera icon"></i>
+                <h1>Website Screenshot Tool</h1>
+            </div>
+            <p class="tool-description">
+                Generate screenshots of any website at various device resolutions. Perfect for testing, documentation, and presentations.
+            </p>
+            
+            <div class="input-group">
+                <input type="url" id="url-input" placeholder="Enter a URL (e.g., https://example.com)" autocomplete="off">
+                <button id="capture-btn"><i class="fas fa-camera"></i> Capture</button>
+            </div>
+            
+            <div class="options-container">
+                <div class="option-group">
+                    <label for="device-select">Device</label>
+                    <select id="device-select">
+                        <option value="desktop">Desktop (1920×1080)</option>
+                        <option value="laptop">Laptop (1366×768)</option>
+                        <option value="tablet">Tablet (768×1024)</option>
+                        <option value="mobile">Mobile (375×667)</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="fullpage-select">Capture Type</label>
+                    <select id="fullpage-select">
+                        <option value="viewport">Visible Area Only</option>
+                        <option value="fullpage">Full Page</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="format-select">Image Format</label>
+                    <select id="format-select">
+                        <option value="png">PNG</option>
+                        <option value="jpeg">JPEG</option>
+                    </select>
+                </div>
+                
+                <div class="option-group">
+                    <label for="delay-select">Delay (seconds)</label>
+                    <select id="delay-select">
+                        <option value="0">No delay</option>
+                        <option value="1">1 second</option>
+                        <option value="3" selected>3 seconds</option>
+                        <option value="5">5 seconds</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="loader">
+                <div class="spinner"></div>
+                <p class="loader-text terminal-text">Capturing screenshot...</p>
+            </div>
+            
+            <div class="error-message" id="error-msg"></div>
+            
+            <div class="screenshot-container" id="screenshot-container">
+                <div class="results-header">
+                    <h2 id="screenshot-url">example.com</h2>
+                    <div class="results-actions">
+                        <button id="download-btn"><i class="fas fa-download"></i> Download</button>
+                        <button id="new-btn"><i class="fas fa-camera"></i> New Screenshot</button>
+                    </div>
+                </div>
+                <div id="screenshot-wrapper" style="padding: 20px; text-align: center;">
+                    <img id="screenshot-image" class="screenshot-image" alt="Website Screenshot" src="" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Hostoweb. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a></p>
+    </footer>
+
+    <script src="screenshot-tool.js"></script>
+</body>
+</html>
